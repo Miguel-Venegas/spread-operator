@@ -55,3 +55,47 @@ giveMeFour(...'GOAT');
 // b O
 // c A
 // d T
+
+
+// using spread on object literals
+
+const feline = {
+  legs: 4,
+  family: 'Felidae'
+
+};
+
+const canine = {
+  legs: 4,
+  family: 'Caninae',
+  furry: true,
+}
+
+// let's make a new object literal using spread operator
+
+const dog = {
+  ...canine,
+  isPet: true,
+  adorable: true
+}
+
+console.log(dog); // output: {legs: 4, family: "Caninae", furry: true, isPet: true, adorable: true}
+
+
+// the order of spread matters
+  // in this example, ...feline overwrites the legs because it comes after the property and updates the property to its own value.
+
+const tripod = {
+  legs: 3, 
+  ...feline
+}
+console.log(tripod) // output: {legs: 4, family: "Felidae"}
+
+  // if you wanted to keep the 3 legs property, then you can place that property after the spread operator and the word feline, like so: 
+
+const tripod2 = {
+  ...feline,
+  legs: 3
+}
+
+console.log(tripod2); // output: {legs: 3, family: "Felidae"}
